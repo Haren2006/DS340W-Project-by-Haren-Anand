@@ -15,7 +15,8 @@ macro_filled_final.xlsx – This dataset contains daily stock data combined with
 The data was prepared and aligned with daily trading records for analysis in this project.
 
 This project builds on the parent paper:
-Wang, Yimeng & Yan, Keyue. (2023). “Machine learning-based quantitative trading strategies across different time intervals in the American market.” Quantitative Finance and Economics, 7(2): 276–295. DOI: 10.3934/QFE.2023028
+Wang, Yimeng & Yan, Keyue. (2023). “Machine learning-based quantitative trading strategies across different time intervals in the American market.” Quantitative Finance and Economics, 7(2): 276–295.  [10.3934/QFE.2023028](https://www.aimspress.com/article/doi/10.3934/QFE.2023028)
+
 
 Code
 
