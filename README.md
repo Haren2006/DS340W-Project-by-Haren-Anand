@@ -1,46 +1,94 @@
 # DS340W-Project-by-Haren-Anand
-DS340W – Course Project
-The Impact of Macroeconomic Variables on Quantitative Trading Performance Across Market Cycles
+# Macro + Technical ML Trading on U.S. Tech Stocks  
+**DS 340W — Quantitative Trading with Machine Learning and Macroeconomic Signals**  
+**Author:** Haren Anand • **Semester:** Fall 2025
 
-This GitHub repository is for academic purposes only. The materials uploaded here are part of a course project for DS340W – Applied Data Science, offered at The Pennsylvania State University (University Park, PA).
+This repository contains my DS 340W final project on **how macroeconomic variables change the performance of ML-based trading strategies** for large U.S. technology stocks over **5-, 10-, and 20-day horizons**.
 
-Repository Contents
+We compare:
 
-This repository contains all relevant files used for our DS340W project.
-All datasets and code have been referenced from their original sources, and appropriate credit is given below.
+- **Tech** models that use only price-based technical indicators  
+- **Tech+Macro** models that also include key macroeconomic variables  
 
-Datasets
+The goal is to see when **macro-aware models** actually beat classic purely technical strategies in terms of prediction quality and trading performance.
 
-macro_filled_final.xlsx – This dataset contains daily stock data combined with five key macroeconomic indicators (Federal Funds Rate, CPI YoY, Unemployment Rate, Yield Curve Slope 10Y–3M, and PMI Level).
-The data was prepared and aligned with daily trading records for analysis in this project.
+---
 
-This project builds on the parent paper:
-Wang, Yimeng & Yan, Keyue. (2023). “Machine learning-based quantitative trading strategies across different time intervals in the American market.” Quantitative Finance and Economics, 7(2): 276–295.  [10.3934/QFE.2023028](https://www.aimspress.com/article/doi/10.3934/QFE.2023028)
+## 1. Quick Start — How to Run
 
+### ✅ Recommended: Google Colab
 
-Code
+1. **Open the notebook**
+   - Go to this GitHub repo.  
+   - Click **`DS340W_Final.ipynb`**.  
+   - Click **“Open in Colab”** (or, in Colab: *File → Open notebook → GitHub* and paste the repo URL).
 
-DS340W_code.ipynb – This Jupyter Notebook performs the full analysis pipeline, including:
+2. **Upload the `data` folder**
+   - In Colab, open the **Files** panel (folder icon on the left).  
+   - Create a folder called `data` if it doesn’t exist.  
+   - Upload:
+     - `data/final_dataset/macro_filled_final.xlsx`  
+     - The 8 per-ticker files:
+       - `AAPL_features.csv`, `ADBE_features.csv`, `AMD_features.csv`, `CRM_features.csv`,  
+         `MSFT_features.csv`, `NOW_features.csv`, `NVDA_features.csv`, `ORCL_features.csv`
+   - After upload, your Colab filesystem should look like:
 
-Importing and cleaning the macro-augmented dataset
+     ```text
+     /content/
+         DS340W_Final.ipynb
+         data/
+             final_dataset/
+                 macro_filled_final.xlsx
+             AAPL_features.csv
+             ADBE_features.csv
+             AMD_features.csv
+             CRM_features.csv
+             MSFT_features.csv
+             NOW_features.csv
+             NVDA_features.csv
+             ORCL_features.csv
+     ```
 
-Training multiple ML models (Decision Tree, SVM, Bagging, Random Forest, AdaBoost, CatBoost)
+3. **Run Cell 0 (install packages)**
+   - At the very top of `DS340W_Final.ipynb`, run **Cell 0**:
 
-Predicting moving-average price changes
+     ```python
+     import sys, subprocess
 
-Converting regression outputs into trading signals
+     packages = [
+         "numpy",
+         "pandas",
+         "matplotlib",
+         "seaborn",
+         "scikit-learn",
+         "catboost",
+         "openpyxl",
+         "xlrd"
+     ]
 
-Evaluating performance using MAE, RMSE, and backtested returns
+     for pkg in packages:
+         subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
 
-The code was adapted from the parent paper’s framework and the following Kaggle source:
-Kaggle Notebook: Beat the Stock Market – The Lazy Strategy
- by Nicolas Carbone (cnic92)
- https://www.kaggle.com/code/cnic92/beat-the-stock-market-the-lazy-strategy/notebook
+     print("Finished installing packages.")
+     ```
 
-Modifications made:
+   - Wait until you see: `Finished installing packages.`
 
-Added macroeconomic indicators as new predictive features
+4. **Run everything**
+   - Go to **Runtime → Run all**, or run the remaining cells from top to bottom.  
+   - All tables, equity curves, confusion matrices, and boxplots from the presentation will be generated.
 
-Updated evaluation metrics to include performance comparison across different market cycles
+---
 
-Adjusted trading signal generation logic for macro-augmented predictions
+### 💻 Alternative: Run Locally
+
+1. **Clone and set up environment**
+
+   ```bash
+   git clone https://github.com/Haren2006/DS340W-Project-by-Haren-Anand.git
+   cd DS340W-Project-by-Haren-Anand
+
+   python3 -m venv venv
+   source venv/bin/activate   # Windows: venv\Scripts\activate
+
+   pip install -r requirements.txt
