@@ -1,6 +1,7 @@
 # DS340W-Project-by-Haren-Anand  
 ## Macro + Technical ML Trading on U.S. Tech Stocks  
-**DS 340W — Quantitative Trading with Machine Learning and Macroeconomic Signals**  
+**DS 340W — The Impact of Macroeconomic Variables on Quantitative Trading Performance Across Market Cycles<img width="446" height="285" alt="image" src="https://github.com/user-attachments/assets/42a2184d-83aa-44bd-a08c-bac92f503256" />
+**  
 **Author:** Haren Anand • **Semester:** Fall 2025  
 
 This repository contains my DS 340W final project testing whether **macroeconomic variables** improve **ML-based trading strategies** for large U.S. technology stocks across **5-, 10-, and 20-day** prediction horizons.
