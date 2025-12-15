@@ -1,94 +1,87 @@
-# DS340W-Project-by-Haren-Anand
-# Macro + Technical ML Trading on U.S. Tech Stocks  
+# DS340W-Project-by-Haren-Anand  
+## Macro + Technical ML Trading on U.S. Tech Stocks  
 **DS 340W — Quantitative Trading with Machine Learning and Macroeconomic Signals**  
-**Author:** Haren Anand • **Semester:** Fall 2025
+**Author:** Haren Anand • **Semester:** Fall 2025  
 
-This repository contains my DS 340W final project on **how macroeconomic variables change the performance of ML-based trading strategies** for large U.S. technology stocks over **5-, 10-, and 20-day horizons**.
+This repository contains my DS 340W final project testing whether **macroeconomic variables** improve **ML-based trading strategies** for large U.S. technology stocks across **5-, 10-, and 20-day** prediction horizons.
 
-We compare:
+I compare:
 
-- **Tech** models that use only price-based technical indicators  
-- **Tech+Macro** models that also include key macroeconomic variables  
+- **Tech-only models:** price/volume-based technical indicators only  
+- **Tech + Macro models:** technical indicators + macroeconomic variables  
 
-The goal is to see when **macro-aware models** actually beat classic purely technical strategies in terms of prediction quality and trading performance.
-
----
-
-## 1. Quick Start — How to Run
-
-### ✅ Recommended: Google Colab
-
-1. **Open the notebook**
-   - Go to this GitHub repo.  
-   - Click **`DS340W_Final.ipynb`**.  
-   - Click **“Open in Colab”** (or, in Colab: *File → Open notebook → GitHub* and paste the repo URL).
-
-2. **Upload the `data` folder**
-   - In Colab, open the **Files** panel (folder icon on the left).  
-   - Create a folder called `data` if it doesn’t exist.  
-   - Upload:
-     - `data/final_dataset/macro_filled_final.xlsx`  
-     - The 8 per-ticker files:
-       - `AAPL_features.csv`, `ADBE_features.csv`, `AMD_features.csv`, `CRM_features.csv`,  
-         `MSFT_features.csv`, `NOW_features.csv`, `NVDA_features.csv`, `ORCL_features.csv`
-   - After upload, your Colab filesystem should look like:
-
-     ```text
-     /content/
-         DS340W_Final.ipynb
-         data/
-             final_dataset/
-                 macro_filled_final.xlsx
-             AAPL_features.csv
-             ADBE_features.csv
-             AMD_features.csv
-             CRM_features.csv
-             MSFT_features.csv
-             NOW_features.csv
-             NVDA_features.csv
-             ORCL_features.csv
-     ```
-
-3. **Run Cell 0 (install packages)**
-   - At the very top of `DS340W_Final.ipynb`, run **Cell 0**:
-
-     ```python
-     import sys, subprocess
-
-     packages = [
-         "numpy",
-         "pandas",
-         "matplotlib",
-         "seaborn",
-         "scikit-learn",
-         "catboost",
-         "openpyxl",
-         "xlrd"
-     ]
-
-     for pkg in packages:
-         subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-
-     print("Finished installing packages.")
-     ```
-
-   - Wait until you see: `Finished installing packages.`
-
-4. **Run everything**
-   - Go to **Runtime → Run all**, or run the remaining cells from top to bottom.  
-   - All tables, equity curves, confusion matrices, and boxplots from the presentation will be generated.
+The objective is to measure when macro-aware models outperform technical-only strategies in both:
+- **prediction quality** (error metrics)
+- **trading performance** (strategy outcomes)
 
 ---
 
-### 💻 Alternative: Run Locally
+## Dataset (Included in Repo)
 
-1. **Clone and set up environment**
+All required data is included in this repository:
 
-   ```bash
-   git clone https://github.com/Haren2006/DS340W-Project-by-Haren-Anand.git
-   cd DS340W-Project-by-Haren-Anand
+- Main combined dataset (macro + technical):
+  - `data/final_dataset/macro_filled_final.xlsx`
 
-   python3 -m venv venv
-   source venv/bin/activate   # Windows: venv\Scripts\activate
+- Per-stock feature exports:
+  - `data/final_dataset/AAPL_features.csv`
+  - `data/final_dataset/ADBE_features.csv`
+  - `data/final_dataset/AMD_features.csv`
+  - `data/final_dataset/CRM_features.csv`
+  - `data/final_dataset/MSFT_features.csv`
+  - `data/final_dataset/NOW_features.csv`
+  - `data/final_dataset/NVDA_features.csv`
+  - `data/final_dataset/ORCL_features.csv`
 
-   pip install -r requirements.txt
+---
+
+## Repository Layout
+
+DS340W-Project-by-Haren-Anand/
+├── data/
+│ └── final_dataset/
+│ ├── macro_filled_final.xlsx
+│ ├── AAPL_features.csv
+│ ├── ADBE_features.csv
+│ ├── AMD_features.csv
+│ ├── CRM_features.csv
+│ ├── MSFT_features.csv
+│ ├── NOW_features.csv
+│ ├── NVDA_features.csv
+│ ├── ORCL_features.csv
+│ └── .gitkeep
+├── reference_code/
+├── DS340W_Final.ipynb
+├── requirements.txt
+└── README.md
+
+---
+
+## Run in Google Colab (
+
+1) Open `DS340W_Final.ipynb` in Google Colab.
+
+2) In Colab, go to **Files** (left sidebar) → **Upload** and upload:
+- `macro_filled_final.xlsx`
+
+3) Run the first setup cell in the notebook to install required packages:
+
+```python
+import sys, subprocess
+
+packages = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "scikit-learn",
+    "catboost",
+    "openpyxl",
+    "xlrd"
+]
+
+for pkg in packages:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+
+print("Finished installing packages.")
+
