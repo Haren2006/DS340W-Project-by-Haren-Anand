@@ -55,10 +55,9 @@ DS340W-Project-by-Haren-Anand/
 ├── DS340W_Final.ipynb
 ├── requirements.txt
 └── README.md
-
+```
 
 ---
-
 ## Run in Google Colab (
 
 1) Open `DS340W_Final.ipynb` in Google Colab.
