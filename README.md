@@ -37,23 +37,25 @@ All required data is included in this repository:
 
 ## Repository Layout
 
+```text
 DS340W-Project-by-Haren-Anand/
 ├── data/
-│ └── final_dataset/
-│ ├── macro_filled_final.xlsx
-│ ├── AAPL_features.csv
-│ ├── ADBE_features.csv
-│ ├── AMD_features.csv
-│ ├── CRM_features.csv
-│ ├── MSFT_features.csv
-│ ├── NOW_features.csv
-│ ├── NVDA_features.csv
-│ ├── ORCL_features.csv
-│ └── .gitkeep
+│   └── final_dataset/
+│       ├── macro_filled_final.xlsx
+│       ├── AAPL_features.csv
+│       ├── ADBE_features.csv
+│       ├── AMD_features.csv
+│       ├── CRM_features.csv
+│       ├── MSFT_features.csv
+│       ├── NOW_features.csv
+│       ├── NVDA_features.csv
+│       ├── ORCL_features.csv
+│       └── .gitkeep
 ├── reference_code/
 ├── DS340W_Final.ipynb
 ├── requirements.txt
 └── README.md
+
 
 ---
 
